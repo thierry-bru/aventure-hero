@@ -31,6 +31,10 @@ class Personnage
     #[ORM\OneToMany(mappedBy: 'personnage', targetEntity: Partie::class)]
     private Collection $parties;
 
+    #[ORM\ManyToOne(inversedBy: 'personnages')]
+    private ?Avatar $image = null;
+
+
     public function __construct()
     {
         $this->aventures = new ArrayCollection();
@@ -134,4 +138,18 @@ class Personnage
     public function __toString(){
         return "aventurier:".$this->prenom." ".$this->nom; 
     }
+
+    public function getImage(): ?Avatar
+    {
+        return $this->image;
+    }
+
+    public function setImage(?Avatar $image): self
+    {
+        $this->image = $image;
+
+        return $this;
+    }
+
+
 }

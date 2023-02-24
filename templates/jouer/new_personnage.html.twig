@@ -3,9 +3,9 @@
 {% block title %}New Personnage{% endblock %}
 
 {% block body %}
+<div class="fondBeige">
     <h1>Create new Personnage</h1>
-
-    {{ include('personnage/_form.html.twig') }}
-
+    {{ include('jouer/personnage_form.html.twig') }}
     <a href="{{ path('jouer') }}">Retour</a>
+    </div>
 {% endblock %}

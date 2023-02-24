@@ -34,7 +34,7 @@ class PersonnageController extends AbstractController
             return $this->redirectToRoute('app_personnage_index', [], Response::HTTP_SEE_OTHER);
         }
 
-        return $this->render('personnage/new.html.twig', [
+        return $this->renderForm('personnage/new.html.twig', [
             'personnage' => $personnage,
             'form' => $form,
         ]);

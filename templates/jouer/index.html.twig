@@ -14,25 +14,31 @@ function validateLancement()
 
     <h1>Salutation aventurier</h1>
     <p>les personnages jouables</p>
-    <ul>
+    <div class="shadow-lg p-3 mb-5 bg-body rounded" >
      {% if personnagesJouables|length > 0 %}
     {% for personnage in personnagesJouables %}
-        <li class="bouton"> <input type="radio" value="{{personnage.id}}" id="idPersonnage" name="idPersonnage">{{personnage.prenom}} {{personnage.nom}}</li>
+    <img class="avatar_small" src="{{asset('avatars/' ~ personnage.image.filename)}}"/>
+        <p class="li_personnage">
+        <input type="radio" value="{{personnage.id}}" id="idPersonnage{{personnage.id}}" name="idPersonnage">
+        <label for="idPersonnage{{personnage.id}}" >{{personnage.prenom}} {{personnage.nom}}</label>
+        
+        </p>
         {% endfor %}
-      
+    
     {% endif %}
-    </ul>
-      <p><a href="{{path('creer_perso')}}">Créer un personnage</a></p>
+     <p><a class="lien" href="{{path('creer_perso')}}">Créer un personnage</a></p>
+    </div>
+     
     <p>Voici la liste des aventures jouables</p>
-    <ul>
+    <div class="shadow-lg p-3 mb-5 bg-body rounded" >
     {% if aventuresJouables|length > 0 %}
     {% for aventure in aventuresJouables %}
-          <li class="bouton"> <input type="radio" value="{{aventure.id}}"  id="idAventure" name="idAventure">{{aventure.titre}}</li>
+         <p class="li_personnage"><input type="radio" value="{{aventure.id}}"  id="idAventure" name="idAventure">{{aventure.titre}}</p>
         {% endfor %}
             {% else %}
         <p>Il n'y a pas d'aventures disponibles !</p>
     {% endif %}
-    </ul>
-        <button onclick="validateLancement();" class="bouton" >JOUER<button>
+    </div>
+        <button onclick="validateLancement();" class="bouton" >JOUER</button>
 </div>
 {% endblock %}
