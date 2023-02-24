@@ -1,0 +1,14 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello JouerController!{% endblock %}
+
+{% block body %}
+
+<div id="main">
+    <div class="shadow-lg p-3 mb-5 bg-body rounded bulle">Salutation aventurier! Bienvenue ici pour vivre une aventure extraordinaire</div>
+    <div class='menu_general'>
+    <a class="bouton" href={{path('jouer')}}>Jouer</a>
+    <a class="bouton" href={{path('app_admin')}}>Gérer les aventures</a>
+    </div>
+</div>
+{% endblock %}

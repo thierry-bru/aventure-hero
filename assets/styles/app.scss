@@ -1,0 +1,109 @@
+@import "custom";
+@import "~bootstrap/scss/bootstrap";
+
+body {
+    background: url(/assets/pictures/fond_accueil.png) no-repeat center center fixed; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+#main
+{
+min-height: 100vh;
+}
+.menu_general
+{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-content: center;
+    min-height: 90vh;
+
+}
+.fondBeige
+{
+    background-color: #FEFFE2;
+    margin-top: 5%;
+    margin-bottom: 5%;
+    height: 90%;
+    padding: 5%;
+    border-radius: 25px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+p
+{
+    color: black;
+    font-size: 4em;
+}
+h1
+{
+    color: black;
+    font-size: 6em;
+}
+
+.bouton
+{
+    background-image: url('/assets/pictures/texture-bois.jpg');
+    background-size: cover;
+    border-radius: 25px;
+    margin: 5%;
+    text-align: center;
+    font-size: 10em;
+    padding:5%;
+    list-style-type: none;
+}
+a:link,a:active,a:visited
+{
+    text-align: center;
+    padding:5%;
+    color:gold;
+    font-size: 1em;
+}
+.bulle
+{
+    margin: 10%;
+}
+label
+{
+    font-size: 3em;
+    font-weight: bold;
+}
+input
+{
+    font-size: 3em;
+    width: 85%;
+}
+input
+{
+    background-color: #FDFFBB;
+}
+
+@media (min-width:700px) {
+    h1
+    {
+        font-size: 2em;
+    }
+    .bouton
+    {
+        font-size: 2em;
+        margin: 5px;
+        text-align: center;
+        padding:5px;
+    }
+    a
+    {
+        font-size: 2em;
+    }
+    p
+    {
+        font-size: 1.5em;
+    }
+}

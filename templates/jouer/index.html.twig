@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello JouerController!{% endblock %}
+
+{% block body %}
+<script>
+function validateLancement()
+{
+
+    document.location.href="/jouer/creer/"+document.querySelector('input[name=idAventure]:checked').value+"/"+document.querySelector('input[name=idPersonnage]:checked').value;
+}
+</script>
+<div class="fondBeige">
+
+    <h1>Salutation aventurier</h1>
+    <p>les personnages jouables</p>
+    <ul>
+     {% if personnagesJouables|length > 0 %}
+    {% for personnage in personnagesJouables %}
+        <li class="bouton"> <input type="radio" value="{{personnage.id}}" id="idPersonnage" name="idPersonnage">{{personnage.prenom}} {{personnage.nom}}</li>
+        {% endfor %}
+      
+    {% endif %}
+    </ul>
+      <p><a href="{{path('creer_perso')}}">Créer un personnage</a></p>
+    <p>Voici la liste des aventures jouables</p>
+    <ul>
+    {% if aventuresJouables|length > 0 %}
+    {% for aventure in aventuresJouables %}
+          <li class="bouton"> <input type="radio" value="{{aventure.id}}"  id="idAventure" name="idAventure">{{aventure.titre}}</li>
+        {% endfor %}
+            {% else %}
+        <p>Il n'y a pas d'aventures disponibles !</p>
+    {% endif %}
+    </ul>
+        <button onclick="validateLancement();" class="bouton" >JOUER<button>
+</div>
+{% endblock %}

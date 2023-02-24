@@ -1,0 +1,18 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello JouerController!{% endblock %}
+
+{% block body %}
+
+<div class="fondBeige">
+    <h1>{{aventure.titre}}</h1>
+    <p> La geste de {{personnage.prenom}} {{personnage.nom}} 
+    <p>{{aventure.introduction}}
+    </p>
+    <a class="bouton" href="{{ path('jouer_etape',{idPartie:partie.id,idEtape:aventure.premiereEtape().id}) }}">
+    Demarrer</a>
+    
+
+
+</div>
+{% endblock %}

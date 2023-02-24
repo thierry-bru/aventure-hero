@@ -1,0 +1,58 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Etape{% endblock %}
+
+{% block body %}
+<div class="fondBeige">
+    <h1>{{aventure.titre}}</h1>
+    <p> La geste de {{personnage.prenom}} {{personnage.nom}} </p>
+<div class="accordion" id="accordionExample">
+  <div class="accordion-item">
+    <h2 class="accordion-header" id="headingOne">
+      <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+        Ambiance
+      </button>
+    </h2>
+    <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+      <div class="accordion-body">
+        <strong>Le narrateur:</strong> {{ etape.texteAmbiance }}
+        <ul>
+        {% for alternative in etape.alternatives %}
+            <li><a href="{{path('jouer_etape',{'idPartie':partie.id,'idEtape':alternative.etapeSuivante.id})}}">{{alternative.texteAmbiance}}</a></li>
+        {% endfor %}
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="accordion-item">
+    <h2 class="accordion-header" id="headingTwo">
+      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+       Fiche de personnage
+      </button>
+    </h2>
+    <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+      <div class="accordion-body">
+          <strong> {{personnage.prenom}} {{personnage.nom}}</strong>
+        Le personnage dispose de {{partie.aventure}} points de vie.
+      </div>
+    </div>
+  </div>
+  <div class="accordion-item">
+    <h2 class="accordion-header" id="headingThree">
+      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+        Inventaire
+      </button>
+    </h2>
+    <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
+      <div class="accordion-body">
+        <strong> inventaire de {{personnage.prenom}} {{personnage.nom}}</strong>
+        Il a du stuff bizarre
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+    {{ include('etape/_delete_form.html.twig') }}
+
+{% endblock %}

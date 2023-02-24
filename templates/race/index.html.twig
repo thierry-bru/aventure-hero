@@ -1,0 +1,28 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Race{% endblock %}
+
+{% block body %}
+<div class="fondBeige">
+    <h1>Race</h1>
+
+        {% for race in races %}
+                <li><span>Id</span>{{ race.id }}</li>
+                <li><span>Id</span>{{ race.libelle }}</li>
+                <li><span>Id</span>{{ race.bonusForce }}</li>
+                <li><span>Id</span>{{ race.bonusAgilite }}</li>
+                <li><span>Id</span>{{ race.bonusEndurance }}</li>
+                <li><span>Id</span>
+                    <a href="{{ path('app_race_show', {'id': race.id}) }}">show</a>
+                    <a href="{{ path('app_race_edit', {'id': race.id}) }}">edit</a>
+                </li>
+
+        {% else %}
+
+                <p>no records found</p>
+
+        {% endfor %}
+
+    <a href="{{ path('app_race_new') }}">Create new</a>
+    </div>
+{% endblock %}
